@@ -1,0 +1,27 @@
+
+@startuml
+skinparam style strictuml
+skinparam componentStyle rectangle
+
+package "Presentation Layer" { 
+    [Activity/Fragment] 
+    [ViewModel] 
+}
+
+package "Domain Layer" { 
+    [Use Cases] 
+}
+
+package "Data Layer" { 
+    [Repository] 
+    [Room Database] 
+    [Google Play Games API] 
+}
+
+[Activity/Fragment] --> [ViewModel]
+[ViewModel] --> [Use Cases]
+[Use Cases] --> [Repository]
+[Repository] --> [Room Database]
+[Repository] --> [Google Play Games API]
+
+@enduml

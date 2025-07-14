@@ -1,0 +1,24 @@
+
+@startuml
+entity "Game" {
+  id : Int
+  name : String
+  date : Date
+}
+
+entity "Player" {
+  id : Int
+  name : String
+  gameId : Int
+}
+
+entity "Score" {
+  id : Int
+  playerId : Int
+  round : Int
+  value : Int
+}
+
+Game ||--o{ Player : "has"
+Player ||--o{ Score : "records"
+@enduml

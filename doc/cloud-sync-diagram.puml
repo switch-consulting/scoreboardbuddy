@@ -1,0 +1,12 @@
+
+@startuml
+skinparam style strictuml
+
+actor User
+participant App
+participant "Google Play Games API" as GPGS
+
+User -> App : Save/Load Templates or Scores
+App -> GPGS : Upload Data
+GPGS -> App : Download Data
+@enduml

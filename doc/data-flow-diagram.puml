@@ -1,0 +1,14 @@
+
+@startuml
+skinparam style strictuml
+skinparam arrowColor Black
+skinparam componentStyle rectangle
+
+[User] --> [UI (Activity/Fragment)]
+[UI (Activity/Fragment)] --> [ViewModel]
+[ViewModel] --> [Use Cases]
+[Use Cases] --> [Repository]
+[Repository] --> [Room Database] : Local Data
+[Repository] --> [Google Play Games API] : Cloud Sync
+
+@enduml
