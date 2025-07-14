@@ -45,26 +45,29 @@ Many games have different or custom scoring systems. Manually entering rules eac
 3. As a user, I want to import a template from another device or friend.  
 4. As a user, I want my templates to sync via Google Play Games Cloud Save.  
 5. As a user, I want to browse and apply saved templates when starting a new game.
+6. As a player or spectator, I want to view a graph of score progression across all games in a match so that I can visualize performance trends and compare players over time.
+
 
 ---
 
 ## 5 · Features & Requirements
 
-| Feature               | Description                                                         | Priority |
-|-----------------------|---------------------------------------------------------------------|----------|
-| Player Management     | Add/edit/remove players and teams                                   | High     |
-| Score Entry           | Per-turn/round entry with undo/edit                                | High     |
-| Automatic Totaling    | Auto-update cumulative scores                                       | High     |
-| Game Templates        | Built-in + user-defined templates (name, description, rules)        | High     |
-| Template Export       | Export custom templates to JSON (via file or share intent)          | High     |
-| Template Import       | Import templates from JSON file or share intent                     | High     |
-| Turn/Round Tracker    | Manage round flow, display history                                  | Medium   |
-| Win Conditions        | Support flexible end-game rules                                     | Medium   |
-| Save & Resume         | Auto-save progress                                                  | High     |
-| Cloud Sync            | Use GPGS Saved Games for scores and templates                       | High     |
-| Score History View    | Round-by-round breakdown                                            | Medium   |
-| Export Final Scores   | Export scoreboard as PDF/CSV                                        | Low      |
-| Offline Support       | Full functionality offline with later sync                          | High     |
+| Feature                 | Description                                                                  | Priority |
+|-------------------------|------------------------------------------------------------------------------|----------|
+| Player Management       | Add/edit/remove players and teams                                            | High     |
+| Score Entry             | Per-turn/round entry with undo/edit                                          | High     |
+| Automatic Totaling      | Auto-update cumulative scores                                                | High     |
+| Game Templates          | Built-in + user-defined templates (name, description, rules)                 | High     |
+| Template Export         | Export custom templates to JSON (via file or share intent)                   | High     |
+| Template Import         | Import templates from JSON file or share intent                              | High     |
+| Turn/Round Tracker      | Manage round flow, display history                                           | Medium   |
+| Win Conditions          | Support flexible end-game rules                                              | Medium   |
+| Save & Resume           | Auto-save progress                                                           | High     |
+| Cloud Sync              | Use GPGS Saved Games for scores and templates                                | High     |
+| Score History View      | Round-by-round breakdown                                                     | Medium   |
+| Export Final Scores     | Export scoreboard as PDF/CSV                                                 | Low      |
+| Offline Support         | Full functionality offline with later sync                                   | High     |
+| Score Progression Graph | Visualize the score progression for each player across all games in a match. | Medium   | 
 
 ---
 
