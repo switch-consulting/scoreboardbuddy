@@ -52,22 +52,22 @@ Many games have different or custom scoring systems. Manually entering rules eac
 
 ## 5 · Features & Requirements
 
-| Feature                 | Description                                                                  | Priority |
-|-------------------------|------------------------------------------------------------------------------|----------|
-| Player Management       | Add/edit/remove players and teams                                            | High     |
-| Score Entry             | Per-turn/round entry with undo/edit                                          | High     |
-| Automatic Totaling      | Auto-update cumulative scores                                                | High     |
-| Game Templates          | Built-in + user-defined templates (name, description, rules)                 | High     |
-| Template Export         | Export custom templates to JSON (via file or share intent)                   | High     |
-| Template Import         | Import templates from JSON file or share intent                              | High     |
-| Turn/Round Tracker      | Manage round flow, display history                                           | Medium   |
-| Win Conditions          | Support flexible end-game rules                                              | Medium   |
-| Save & Resume           | Auto-save progress                                                           | High     |
-| Cloud Sync              | Use GPGS Saved Games for scores and templates                                | High     |
-| Score History View      | Round-by-round breakdown                                                     | Medium   |
-| Export Final Scores     | Export scoreboard as PDF/CSV                                                 | Low      |
-| Offline Support         | Full functionality offline with later sync                                   | High     |
-| Score Progression Graph | Visualize the score progression for each player across all games in a match. | Medium   | 
+| Id    | Feature                 | Description                                                                  | Priority |
+|-------|-------------------------|------------------------------------------------------------------------------|----------|
+| RF_1  | Player Management       | Add/edit/remove players and teams                                            | High     |
+| RF_2  | Score Entry             | Per-turn/round entry with undo/edit                                          | High     |
+| RF_3  | Automatic Totaling      | Auto-update cumulative scores                                                | High     |
+| RF_4  | Game Templates          | Built-in + user-defined templates (name, description, rules)                 | High     |
+| RF_5  | Template Export         | Export custom templates to JSON (via file or share intent)                   | High     |
+| RF_6  | Template Import         | Import templates from JSON file or share intent                              | High     |
+| RF_7  | Turn/Round Tracker      | Manage round flow, display history                                           | Medium   |
+| RF_8  | Win Conditions          | Support flexible end-game rules                                              | Medium   |
+| RF_9  | Save & Resume           | Auto-save progress                                                           | High     |
+| RF_10 | Cloud Sync              | Use GPGS Saved Games for scores and templates                                | High     |
+| RF_11 | Score History View      | Round-by-round breakdown                                                     | Medium   |
+| RF_12 | Export Final Scores     | Export scoreboard as PDF/CSV                                                 | Low      |
+| RF_13 | Offline Support         | Full functionality offline with later sync                                   | High     |
+| RF_14 | Score Progression Graph | Visualize the score progression for each player across all games in a match. | Medium   | 
 
 ---
 
@@ -116,22 +116,10 @@ Many games have different or custom scoring systems. Manually entering rules eac
 | Cloud Sync               | Google Play Games Saved Games (Snapshots API)                       |
 | Dependencies             | AndroidX (Room, Lifecycle, Navigation), Material Components, GPGS v2, iText/Apache POI |
 
----
-
-## 9 · Milestones
-
-| Milestone                              | Target Date    |
-|----------------------------------------|----------------|
-| PRD v1.2 Final Approval                | July 15, 2025  |
-| Template Import/Export Prototype       | Aug 5, 2025    |
-| Cloud Integration (templates + saves) | Aug 20, 2025   |
-| Alpha Release (core + local features) | Sep 5, 2025    |
-| Beta Release (cloud & import/export)  | Sep 25, 2025   |
-| Public Launch                         | Oct 10, 2025   |
 
 ---
 
-## 10 · Risks & Mitigations
+## 9 · Risks & Mitigations
 
 | Risk                                    | Mitigation                                                    |
 |-----------------------------------------|---------------------------------------------------------------|
