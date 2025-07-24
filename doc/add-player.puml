@@ -1,0 +1,11 @@
+@startuml
+actor User
+User -> PlayerListActivity : tap "Add Player"
+PlayerListActivity -> PlayerViewModel : addPlayer(name, avatar, colour, teamId)
+PlayerViewModel -> AddPlayerUseCase : execute(request)
+AddPlayerUseCase -> PlayerRepository : addPlayer(player)
+PlayerRepository -> PlayerDao : insert(player)
+PlayerRepository --> SyncService : enqueueSync(player)
+AddPlayerUseCase --> PlayerViewModel : success
+PlayerViewModel --> PlayerListActivity : playersLiveData updated
+@enduml

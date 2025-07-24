@@ -1,0 +1,33 @@
+@startuml
+package "Presentation" {
+  component PlayerListActivity
+  component PlayerEditorFragment
+  component PlayerViewModel
+}
+
+package "Domain" {
+  component AddPlayerUseCase
+  component UpdatePlayerUseCase
+  component DeletePlayerUseCase
+  component GetPlayersUseCase
+}
+
+package "Data" {
+  component PlayerRepository
+  database RoomDB
+  component GPGSPlayerSnapshot
+}
+
+PlayerListActivity --> PlayerViewModel
+PlayerEditorFragment --> PlayerViewModel
+PlayerViewModel --> AddPlayerUseCase
+PlayerViewModel --> UpdatePlayerUseCase
+PlayerViewModel --> DeletePlayerUseCase
+PlayerViewModel --> GetPlayersUseCase
+AddPlayerUseCase --> PlayerRepository
+UpdatePlayerUseCase --> PlayerRepository
+DeletePlayerUseCase --> PlayerRepository
+GetPlayersUseCase --> PlayerRepository
+PlayerRepository --> RoomDB
+PlayerRepository --> GPGSPlayerSnapshot
+@enduml

@@ -67,6 +67,81 @@ The application is divided into the following layers:
 
 - **Google Play Games Saved Games**: Sync templates and scores across devices.
 
+### 5.4 Player Management (**RF_1**)
+
+> *Add / edit / remove **players** and **teams**; assign colours, avatars, and optional grouping so that games can be scored accurately.*
+
+#### 5.4.1 Responsibilities
+
+- **Create Player / Team** – Persist new players or teams locally, enqueue cloud sync.
+- **Edit Player / Team** – Update names, colours, avatars; propagate changes to ongoing games.
+- **Delete Player / Team** – Cascade rules to maintain referential integrity (e.g., orphan scores reassigned or removed).
+- **List & Select** – Paginated list with search and colour/initial avatar chips for quick selection when starting a new game.
+
+#### 5.4.2 Architectural Placement
+
+- **Presentation Layer**
+  - `PlayerListActivity`, `PlayerEditorFragment`
+- **ViewModel Layer**
+  - `PlayerViewModel` (exposes `LiveData<List<PlayerWithTeam>>`)
+- **Domain Layer**
+  - `AddPlayerUseCase`, `UpdatePlayerUseCase`, `DeletePlayerUseCase`, `GetPlayersUseCase`
+- **Data Layer**
+  - `PlayerRepository` → orchestrates between `Room` and cloud sync (`GpgsSnapshotDataSource`)
+  - DAOs: `PlayerDao`, `TeamDao`
+
+#### 5.4.3 Data Model
+
+
+### 5.4 Player Management (**RF_1**)
+
+> *Add / edit / remove **players** and **teams**; assign colours, avatars, and optional grouping so that games can be scored accurately.*
+
+#### 5.4.1 Responsibilities
+
+- **Create Player / Team** – Persist new players or teams locally, enqueue cloud sync.
+- **Edit Player / Team** – Update names, colours, avatars; propagate changes to ongoing games.
+- **Delete Player / Team** – Cascade rules to maintain referential integrity (e.g., orphan scores reassigned or removed).
+- **List & Select** – Paginated list with search and colour/initial avatar chips for quick selection when starting a new game.
+
+#### 5.4.2 Architectural Placement
+
+- **Presentation Layer**
+  - `PlayerListActivity`, `PlayerEditorFragment`
+- **ViewModel Layer**
+  - `PlayerViewModel` (exposes `LiveData<List<PlayerWithTeam>>`)
+- **Domain Layer**
+  - `AddPlayerUseCase`, `UpdatePlayerUseCase`, `DeletePlayerUseCase`, `GetPlayersUseCase`
+- **Data Layer**
+  - `PlayerRepository` → orchestrates between `Room` and cloud sync (`GpgsSnapshotDataSource`)
+  - DAOs: `PlayerDao`, `TeamDao`
+
+#### 5.4.3 Data Model
+
+![Player Data Model](player-management-datamodel.svg)
+
+#### 5.4.4 Sequence Add Player
+
+![Sequence Add Player](add-player.svg)
+
+#### 5.4.5 Component Diagram
+
+![Player Management Component Diagram](player-management-component-diagram.svg)
+
+#### 5.4.6 Database Considerations
+
+- Entities: players, teams tables in Room.
+- Indices: Composite index on (teamId, name) for faster team-scoped look-ups.
+- Migrations: E.g., Migration_1_2 creates tables and backfills solo players to default team.
+- Referential Integrity: ON DELETE SET NULL for teamId to preserve score history.
+
+#### 5.4.7 Offline-First and Sync
+
+- All operations are local-first.
+- Entities are marked isDirty = true and synced in the background.
+- Conflict resolution: last-write-wins using updatedAt timestamp.
+- Manual conflict merge UI may be added in future releases (see RF_10).
+
 ---
 
 ## 6 · Database Schema

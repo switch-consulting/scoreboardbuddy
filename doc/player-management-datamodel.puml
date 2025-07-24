@@ -1,0 +1,19 @@
+@startuml
+class Player {
+  +playerId: UUID
+  +name: String
+  +avatarUri: Uri
+  +color: Int
+  +teamId: UUID?
+  +createdAt: Instant
+  +updatedAt: Instant
+}
+
+class Team {
+  +teamId: UUID
+  +name: String
+  +color: Int
+}
+
+Player "0..*" --> "0..1" Team : belongs to
+@enduml
