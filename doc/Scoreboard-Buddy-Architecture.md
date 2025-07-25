@@ -19,7 +19,7 @@ The application is divided into the following layers:
 
 ### High-Level Architecture Diagram
 
-![High-Level Architecture](high-level-architecture.svg)
+![High-Level Architecture](img/high-level-architecture.svg)
 
 
 ---
@@ -47,7 +47,7 @@ The application is divided into the following layers:
 
 ### Data Flow Diagram
 
-![Data Flow Diagram](data-flow-diagram.svg)
+![Data Flow Diagram](img/data-flow-diagram.svg)
 
 ---
 
@@ -67,31 +67,6 @@ The application is divided into the following layers:
 
 - **Google Play Games Saved Games**: Sync templates and scores across devices.
 
-### 5.4 Player Management (**RF_1**)
-
-> *Add / edit / remove **players** and **teams**; assign colours, avatars, and optional grouping so that games can be scored accurately.*
-
-#### 5.4.1 Responsibilities
-
-- **Create Player / Team** – Persist new players or teams locally, enqueue cloud sync.
-- **Edit Player / Team** – Update names, colours, avatars; propagate changes to ongoing games.
-- **Delete Player / Team** – Cascade rules to maintain referential integrity (e.g., orphan scores reassigned or removed).
-- **List & Select** – Paginated list with search and colour/initial avatar chips for quick selection when starting a new game.
-
-#### 5.4.2 Architectural Placement
-
-- **Presentation Layer**
-  - `PlayerListActivity`, `PlayerEditorFragment`
-- **ViewModel Layer**
-  - `PlayerViewModel` (exposes `LiveData<List<PlayerWithTeam>>`)
-- **Domain Layer**
-  - `AddPlayerUseCase`, `UpdatePlayerUseCase`, `DeletePlayerUseCase`, `GetPlayersUseCase`
-- **Data Layer**
-  - `PlayerRepository` → orchestrates between `Room` and cloud sync (`GpgsSnapshotDataSource`)
-  - DAOs: `PlayerDao`, `TeamDao`
-
-#### 5.4.3 Data Model
-
 
 ### 5.4 Player Management (**RF_1**)
 
@@ -118,7 +93,7 @@ The application is divided into the following layers:
 
 #### 5.4.3 Data Model
 
-![Player Data Model](player-management-datamodel.svg)
+![Player Data Model](img/player-management-datamodel.svg)
 
 #### 5.4.4 Sequence Add Player
 
@@ -126,7 +101,7 @@ The application is divided into the following layers:
 
 #### 5.4.5 Component Diagram
 
-![Player Management Component Diagram](player-management-component-diagram.svg)
+![Player Management Component Diagram](img/player-management-component-diagram.svg)
 
 #### 5.4.6 Database Considerations
 
@@ -148,7 +123,7 @@ The application is divided into the following layers:
 
 ### Database Schema Diagram
 
-![Database Schema Diagram](database-schema-diagram.svg)
+![Database Schema Diagram](img/database-schema-diagram.svg)
 
 ---
 
@@ -156,7 +131,7 @@ The application is divided into the following layers:
 
 ### Cloud Sync Diagram
 
-![Cloud Sync Diagram](cloud-sync-diagram.svg)
+![Cloud Sync Diagram](img/cloud-sync-diagram.svg)
 
 ---
 
