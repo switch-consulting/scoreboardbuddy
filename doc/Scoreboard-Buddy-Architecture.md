@@ -146,7 +146,7 @@ To support flexible team-based and solo gameplay, the following data model has b
 - Avatars are stored as references to assets or URI strings.
 - Each entity tracks a `lastUpdated` timestamp and `isDirty` flag to support offline-first sync.
 
-![Player Management Data Model](img/player-management-datamodel.svg)
+![Player Management Data Model](img/player-schema.svg)
 
 #### 6.2.3 Tables
 
