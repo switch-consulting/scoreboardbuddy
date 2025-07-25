@@ -12,8 +12,8 @@ This project is intended for experimentation, learning, and demonstration purpos
 
 ## 📄 Documentation
 
-- [Product Requirements Document (PRD)](docs/Scoreboard-Buddy-PRD.md)
-- [Architecture Overview](docs/Scoreboard-Buddy-architecture.md)
+- [Product Requirements Document (PRD)](doc/Scoreboard-Buddy-PRD.md)
+- [Architecture Overview](doc/Scoreboard-Buddy-architecture.md)
 
 ## 🚧 Project Status
 
