@@ -4,6 +4,17 @@
 
 This project is intended for experimentation, learning, and demonstration purposes. It showcases basic features related to a scoreboard or score counter and serves as a foundation for exploring Android development patterns, UI interactions, and collaborative coding practices.
 
+## 🚀 Features
+
+- Customizable team names and scores
+- Simple, fast user interface
+- Lightweight and offline-friendly
+
+## 📄 Documentation
+
+- [Product Requirements Document (PRD)](docs/Scoreboard-Buddy-PRD.md)
+- [Architecture Overview](docs/Scoreboard-Buddy-architecture.md)
+
 ## 🚧 Project Status
 
 This is an active **test project** and may not represent production-ready code. Contributions and suggestions are welcome as part of the collaborative Vibe Coding sessions.
