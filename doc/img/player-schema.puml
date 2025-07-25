@@ -32,29 +32,6 @@ entity Player {
 
 Team ||--o{ Player : includes
 
-' ────────────────────────
-' Game Templates and Sessions
-' ────────────────────────
-entity GameTemplate {
-  * id : UUID <<PK>>
-  --
-  name : string
-  rulesJson : text
-  createdAt : timestamp
-  updatedAt : timestamp
-  isDirty : boolean
-}
-
-entity GameSession {
-  * id : UUID <<PK>>
-  --
-  templateId : UUID <<FK>>
-  startedAt : timestamp
-  endedAt : timestamp
-  isDirty : boolean
-  lastUpdated : timestamp
-}
-
 entity ScoreEntry {
   * id : UUID <<PK>>
   --
@@ -65,8 +42,6 @@ entity ScoreEntry {
   createdAt : timestamp
 }
 
-GameTemplate ||--o{ GameSession : uses
-GameSession ||--o{ ScoreEntry : contains
 Player ||--o{ ScoreEntry : scored by
 
 ' ────────────────────────
@@ -83,32 +58,5 @@ entity UserSettings {
 }
 
 UserSettings }|..|| Team : default team
-
-' ────────────────────────
-' Sync Metadata
-' ────────────────────────
-entity SyncMetadata {
-  * id : UUID <<PK>>
-  --
-  entityType : string
-  entityId : UUID
-  isDirty : boolean
-  lastSynced : timestamp
-  lastUpdated : timestamp
-  syncStatus : string
-}
-
-entity CloudSnapshot {
-  * id : UUID <<PK>>
-  --
-  title : string
-  description : string
-  dataChecksum : string
-  updatedAt : timestamp
-  deviceName : string
-  platform : string
-}
-
-SyncMetadata }-- CloudSnapshot : snapshot origin
 
 @enduml

@@ -1,0 +1,54 @@
+@startuml user-settings-sync-schema
+
+skinparam class {
+  BackgroundColor White
+  ArrowColor Black
+  BorderColor Black
+}
+
+' User Settings Table
+entity UserSettings {
+  * id : UUID <<PK>>
+  --
+  theme : string
+  defaultTeamId : UUID <<FK>>  ' optional
+  showAvatars : boolean
+  autoSyncEnabled : boolean
+  lastOpened : timestamp
+}
+
+' Sync metadata table for each syncable entity
+entity SyncMetadata {
+  * id : UUID <<PK>>
+  --
+  entityType : string  ' e.g., "player", "template"
+  entityId : UUID
+  isDirty : boolean
+  lastSynced : timestamp
+  lastUpdated : timestamp
+  syncStatus : string  ' e.g., "PENDING", "SYNCED", "CONFLICT"
+}
+
+' Cloud snapshot metadata (GPGS or similar)
+entity CloudSnapshot {
+  * id : UUID <<PK>>
+  --
+  title : string
+  description : string
+  dataChecksum : string
+  updatedAt : timestamp
+  deviceName : string
+  platform : string
+}
+
+' Reuse from Player/Team schema
+entity Team {
+  * id : UUID <<PK>>
+  --
+  name : string
+}
+
+UserSettings }|..|| Team : uses (default)
+SyncMetadata }-- CloudSnapshot : originates from
+
+@enduml
